@@ -35,35 +35,7 @@
         font-size: 40px;
         font-weight: bold;
     }
-    .search-bar {
-        background: lightblue;
-        padding: 15px;
-        margin: 20px
-        width: 80px;
-        display: flex;
-        gap: 10px;
-        border-radius: 10px;
-        box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .search-bar input, .search-bar select {
-        flex: auto;
-        padding: 12px;
-        border: 1px solid #ccc;
-        border-radius: 6px;
-        text-align: center;
-        font-size: large;
-    }
-
-    .search-bar button {
-        padding: 50px 20px;
-        background: #0A3D62;
-        color: white;
-        border: none;
-        border-radius: 6px;
-        font-size: 16px;
-        cursor: pointer;
-    }
+    
 
     .container {
          background: url('bckimg.jpeg')
