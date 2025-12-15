@@ -3,8 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Student Marks Form</title>
-
+    <title>Contact Us</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -47,10 +46,11 @@
 <body>
 
     <div class="box">
-        <h2>Student Marks Form</h2>
+        
+    <h2>Contact Us</h2>
 
-        <form onsubmit="showMarks()">
-           
+    <form id="contactForm">
+
         <label>Enter your Name:</label><br>
         <input type="text" id="name" placeholder="Name" style=" padding:8px; "><br><br>
 
@@ -66,35 +66,39 @@
         <button type="button" onclick="submitForm()" style="padding:10px 15px; background:#0A3D62; color:white; border:none; border-radius:5px;">Submit</button>
 
         <button type="button" onclick="clearForm()" style="padding:10px 15px; background:#777; color:white; border:none; border-radius:5px; margin-left:10px;">Clear</button>
-        </form>
 
-        <div id="output"></div>
+    </form>
+
+    <p id="result" style="font-weight:bold; margin-top:15px;"></p>
     </div>
-
-    <script>
-        function submitForm() {
+<script>
+    function submitForm() {
         var name = document.getElementById("name").value;
         var email = document.getElementById("email").value;
         var phone = document.getElementById("phone").value;
         var message = document.getElementById("message").value;
 
         let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-        if (!email.match(emailPattern)) {
-           document.getElementById("result").innerHTML = "Enter a valid email!";
-            return false; 
-        }
-
-        if (phone.length < 10 || phone.length > 10) {
-            document.getElementById("result").innerHTML = "Phone number incorrect!";
-            return false;
-        }
+        let errors = "";
 
         if (name == "" || email == "" || phone == "" || message == "") {
-            document.getElementById("result").innerHTML = "Please fill all fields!";
-        } else{
-            document.getElementById("result").innerHTML = "Your response has been submitted."
+            errors += "Please fill all fields!<br>";
         }
-        
+        else{
+            if (!email.match(emailPattern)) {
+                errors += "Enter a valid email!<br>";
+            }
+
+            if (phone.length < 10 || phone.length > 10) {
+                errors += "Phone number incorrect!<br>";
+            }
+        }
+
+        if (errors !== "") {
+            document.getElementById("result").innerHTML = errors;
+        } else {
+            document.getElementById("result").innerHTML = "Your response has been submitted.";
+        }
     }
 
     function clearForm() {
@@ -104,7 +108,7 @@
         document.getElementById("message").value = "";
         document.getElementById("result").innerHTML = "";
     }
-    </script>
+</script>
 
 </body>
 </html>
